@@ -1,0 +1,20 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+#gameScreen {
+    position: absolute;
+    top: 10%;
+    left: 25%;
+    border: 2px solid black;
+}
+
+#imgBall {
+    display: none;
+}
+
+#imgBrick {
+    display: none;
+}
