@@ -4,8 +4,6 @@ export default class Paddle {
         this.gameHeight = game.gameHeight;
         this.width = 150;
         this.height = 30;
-        // console.log(gameWidth);
-        // console.log("Insied Paddle class");
         this.maxSpeed = 7;
         this.speed = 0;
         this.position = {
@@ -14,18 +12,14 @@ export default class Paddle {
         }
     }
     draw(context) {
-        // console.log("Inside draw function");
-        context.fillStyle = "#0ff";
+        context.fillStyle = "#911654";
         context.fillRect(this.position.x, this.position.y, this.width, this.height);
     }
     update(deltaTime) {
-        // deltaTime is change in time i.e how much time has changed since the last time this has been updated.
-        // if(!deltaTime)  return;
-        // this.position.x += 5 / deltaTime;
         this.position.x += this.speed;
 
         if(this.position.x < 0)     this.position.x = 0;
-        // console.log(this.gameWidth);
+
         if(this.position.x + this.width > this.gameWidth)      this.position.x = this.gameWidth - this.width;
         
     }

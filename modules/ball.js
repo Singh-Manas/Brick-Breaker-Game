@@ -23,32 +23,28 @@ export default class Ball {
         context.drawImage(this.image, this.position.x, this.position.y, this.size, this.size);
     }
     update(deltaTime) {
-        // console.log(this.game.paddle.position.x);
         this.position.x += this.speed.x;
         this.position.y += this.speed.y;
-        // Wall on left or right
+
+        // When Ball hits Left Wall or Right Wall
         if(this.position.x + this.size > this.gameWidth || this.position.x < 0) {
+            WALL_HIT.play();
             this.speed.x = -this.speed.x;
         }
-        // Wall on top
+        // When Ball hits Top Wall
         if(this.position.y < 0) {
+            WALL_HIT.play();
             this.speed.y = -this.speed.y;
         }
-        // Wall on bottom
+        // When Ball hits Bottom
         if(this.position.y + this.size > this.gameHeight) {
+            LIFE_LOST.play();
             this.game.lives--;
-            // console.log(this.game.lives);
-            // this.speed.y = -this.speed.y;
             this.reset();
         }
 
-        // Check collision with paddle
-        // let bottomOfBall = this.position.y + this.size;
-        // let topOfPaddle = this.game.paddle.position.y;
-        // let leftSideOfPaddle = this.game.paddle.position.x;
-        // let rightSideOfPaddle = this.game.paddle.position.x + this.game.paddle.width;
-
         if(detectCollision(this, this.game.paddle)) {
+            PADDLE_HIT.play()
             this.speed.y = -this.speed.y;
             this.position.y = this.game.paddle.position.y - this.size;
         }

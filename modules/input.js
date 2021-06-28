@@ -1,3 +1,5 @@
+let canvas = document.getElementById("gameScreen");
+
 export default class InputHandler {
     constructor(paddle, game) {
         document.addEventListener('keydown', (event) => {
@@ -10,6 +12,13 @@ export default class InputHandler {
                 case 39:
                     // alert("Move Right");
                     paddle.moveRight();
+                    break;
+                case 27:
+                    game.togglePause();
+                    break;
+                case 32:
+                    // canvas.style.display = "visible";
+                    game.start();
                     break;
             }
         });
@@ -24,12 +33,6 @@ export default class InputHandler {
                 case 39:
                     // alert("Move Right");
                     if(paddle.speed > 0)    paddle.stop();
-                    break;
-                case 27:
-                    game.togglePause();
-                    break;
-                case 32:
-                    game.start();
                     break;
             }
         });
