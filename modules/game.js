@@ -107,6 +107,7 @@ export default class Game {
             context.fillText("2. Press Escape Button to Pause/Resume the game.", this.gameWidth / 2, this.gameHeight / 1.7);
             context.fillText("3. Press Left/Right Arrow Keys to move the paddle.", this.gameWidth / 2, this.gameHeight / 1.45);
             context.fillText("4. Player has total of 3 lives and there are 3 levels in the game.", this.gameWidth / 2, this.gameHeight / 1.28);
+            context.fillText("5. If you pass a level, you will be automatically upgraded to next level.", this.gameWidth / 2, this.gameHeight / 1.15);
             }
 
         if(this.gameState === GAMESTATE.GAMEOVER) {
